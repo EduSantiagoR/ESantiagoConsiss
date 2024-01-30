@@ -65,9 +65,11 @@ namespace CONSOLE
             //Thread.Sleep(5000);
 
 
-            //EjerciciosLogica.Ejercicio2(2);
-            EjerciciosLogica.Ejercicio4();
-
+            EjerciciosLogica.Ejercicio2();
+            //EjerciciosLogica.Ejercicio4();
+            //EjerciciosLogica.Ejercicio6();
+            //EjerciciosLogica.Ejercicio3("Arde ya la yedra");
+            //EjerciciosLogica.Ejercicio5(4);
             Console.ReadKey();
         }
         public static int Factorial(int numero)
