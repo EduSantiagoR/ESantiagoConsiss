@@ -1,0 +1,57 @@
+﻿@model PL.Models.Persona
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Personas</h2>
+<hr />
+<div>
+    <a class="btn btn-success" href="@Url.Action("Form", "Persona")">Nueva persona</a>
+</div>
+<hr />
+<div>
+    @if (Model.Personas != null)
+    {
+        if (Model.Personas.Count > 0)
+        {
+            <table class="table table-dark table-hover text-center">
+                <thead>
+                    <tr>
+                        <th>Editar</th>
+                        <th>Nombre</th>
+                        <th>Dirección</th>
+                        <th>Edad</th>
+                        <th>Correo</th>
+                        <th>Habilidad 1</th>
+                        <th>Habilidad 2</th>
+                        <th>Tipo</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(PL.Models.Persona persona in Model.Personas)
+                    {
+                        <tr>
+                            <td><a href="@Url.Action("Form", "Persona", new {idPersona = persona.IdPersona})" class="btn btn-warning"></a></td>
+                            <td>@persona.Nombre</td>
+                            <td>@persona.Direccion</td>
+                            <td>@persona.Edad</td>
+                            <td>@persona.Correo</td>
+                            <td>@persona.HabilidadPrimaria</td>
+                            <td>@persona.HabilidadSecundaria</td>
+                            <td>@persona.IdTipo</td>
+                            <td><a href="@Url.Action("Delete", "Persona", new {idPersona = persona.IdPersona})" class="btn btn-danger" onclick="return confirm('¿Estas seguro de querer eliminar?')"></a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div role="alert" class="alert alert-warning">
+                No hay personas registradas.
+            </div>
+        }
+    }
+</div>
